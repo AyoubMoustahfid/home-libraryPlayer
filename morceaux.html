@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Calling Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/icons/se1.png">
+    <!-- Calling Favicon -->
+    <!-- ********************* -->
+    <!-- CSS files -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/nice-select.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+    <link rel="stylesheet" href="/css/meanmenu.css" media="all">
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" class="color-changing" href="/css/color.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    <!-- End CSS files -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+</head>
+
+<body style="background: url(/img/icons/bg-ic_01.png);" id="body">
+    <div id="form">
+        <div class="form d-flex flex-column justify-content-center align-items-center">
+
+            <a onclick="document.getElementById('form').style.display='none';document.getElementById('body').classList.toggle('active')" class="butx"></a >
+            <h1>Fill The Form</h1>
+            <div class="inputs">
+                <input  id="input" type="text" id="name" placeholder="ARTIST NAME">
+                <input id="input" type="text" id="pic" placeholder="ARTIST IMG (URL)">
+                <input id="input" type="text" id="descr" placeholder="DESCRIPTION ABOUT HIM">
+
+                <input id="input" type="button" id="submit" value="SUBMIT" onclick="display()">
+            </div>
+        </div>
+    </div>
+
+    <div id="addfix" class="addfix">
+         <button onclick="document.getElementById('form').style.display='flex';
+                 document.getElementById('body').classList.toggle('active')">
+         </button>
+    </div>
+    <nav  class="navbar navbar-expand-lg navbar-light header ">
+        <a class="navbar-brand" href="#"><img style="width: 100px;" src="/img/logo/logo3.png" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+            <ul class="navbar-nav space-between">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Artists<span class="sr-only">(current)</span></a>
+                </li>
+
+
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Albums
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item dropdown-toggle" href="#">DRAKE</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Submenu action</a></li>
+                                <li><a class="dropdown-item" href="#">Another submenu action</a></li>
+
+
+                            </ul>
+                        </li>
+                        <li><a class="dropdown-item dropdown-toggle" href="#">POST MALONE</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Submenu action</a></li>
+                                <li><a class="dropdown-item" href="#">Another submenu action</a></li>
+
+
+                            </ul>
+                        </li>
+                        <li><a class="dropdown-item dropdown-toggle" href="#">SNOOP DOGG</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Submenu action</a></li>
+                                <li><a class="dropdown-item" href="#">Another submenu action</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <div  class="container-fluid background"></div>
+
+    <script>
+    
+        $(document).ready(function () {
+            $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
+                var $el = $(this);
+                $el.toggleClass('active-dropdown');
+                var $parent = $(this).offsetParent(".dropdown-menu");
+                if (!$(this).next().hasClass('show')) {
+                    $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+                }
+                var $subMenu = $(this).next(".dropdown-menu");
+                $subMenu.toggleClass('show');
+
+                $(this).parent("li").toggleClass('show');
+
+                $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) {
+                    $('.dropdown-menu .show').removeClass("show");
+                    $el.removeClass('active-dropdown');
+                });
+
+                if (!$parent.parent().hasClass('navbar-nav')) {
+                    $el.next().css({
+                        "top": $el[0].offsetTop,
+                        "left": $parent.outerWidth() - 4
+                    });
+                }
+
+                return false;
+            });
+        });
+    </script> 
+
+
+ <!-- latest videos start -->
+ <section class="videos-1 pt-50" style="background-image: url('img/bg/bg-11.jpg'); height: 80vh; margin-top: 50px;" >
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-xl-6 col-lg-7 offset-xl-6 offset-lg-5 wow fadeInUp">
+                <div class="line-heads text-lg-left text-center left mt-30">
+                    <h1 class="mb-25">Derniers Morceaux</h1>
+                    <h2 class="mb-25">Name Album</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem laboriosam minus consequatur facere. Ad provident voluptatem totam ipsum alias porro voluptate pariatur tenetur. Tempore inventore quos cum. Molestias, ex fugiat?</p>
+                </div>
+           
+            </div>
+        </div>
+    </div>
+</section> 
+<!-- latest videos end -->
+
+<section class="morceaux">
+  
+    <div class="each-l-videos d-sm-flex align-items-center">
+        <div class="vid-l-img">
+            <img src="img/videos/1.jpg" alt="">
+            <!-- <a href="" class="play-video popup-video"><i class="fa fa-play"></i></a> -->
+        </div>
+        <div class="vid-l-contents">
+            <div class="d-flex justify-content-center pb-15 vid-l-text">
+                <i onclick="checkPlay()" class="fa fa-play playButton"></i>
+            </div>
+            <div class="d-flex vid-l-text">
+                <span>00:00</span>
+                <div class="sliderContainer">
+                    <input type="range" id="myRange" class="slider" min="1" max="100" value="1">
+                </div>
+                <span>00:00</span>
+            </div>
+            <div class="name-morceaux">
+                <h1>Lorem ipsum dolor sit</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="each-l-videos d-sm-flex align-items-center">
+        <div class="vid-l-img">
+            <img src="img/videos/2.jpg" alt="">
+            <a href="https://www.youtube.com/watch?v=qtQgbdmIO30" class="play-video popup-video"><i class="fa fa-play"></i></a>
+        </div>
+        <div class="vid-l-contents">
+            <div class="d-flex justify-content-center pb-15 vid-l-text">
+                <i  onclick="checkPlay()" class="fa fa-play playButton"></i>
+            </div>
+
+            <div class="d-flex vid-l-text">
+                <span>00:00</span>
+                <div class="sliderContainer">
+                    <input type="range" id="myRange" class="slider" min="1" max="100" value="1">
+                </div>
+                <span>00:00</span>
+            </div>
+            <div class="name-morceaux">
+                <h1>Lorem ipsum dolor sit</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="each-l-videos d-sm-flex align-items-center">
+        <div class="vid-l-img">
+            <img src="img/videos/3.jpg" alt="">
+            <a href="https://www.youtube.com/watch?v=qtQgbdmIO30" class="play-video popup-video"><i class="fa fa-play"></i></a>
+        </div>
+        <div class="vid-l-contents">
+            <div class="d-flex justify-content-center pb-15 vid-l-text">
+                <i id="playButton" onclick="checkPlay()" class="fa fa-play"></i>
+            </div>
+            <div class="d-flex vid-l-text">
+                <span>00:00</span>
+                <div class="sliderContainer">
+                    <input type="range" id="myRange" class="slider" min="1" max="100" value="1">
+                </div>
+                <span>00:00</span>
+            </div>
+            <div class="name-morceaux">
+                <h1>Lorem ipsum dolor sit</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="each-l-videos d-sm-flex align-items-center">
+        <div class="vid-l-img">
+            <img src="img/videos/1.jpg" alt="">
+            <a href="https://www.youtube.com/watch?v=qtQgbdmIO30" class="play-video popup-video"><i class="fa fa-play"></i></a>
+        </div>
+        <div class="vid-l-contents">
+            <div class="d-flex justify-content-center pb-15 vid-l-text">
+                <i id="playButton" onclick="checkPlay()" class="fa fa-play"></i>
+            </div>
+            <div class="d-flex vid-l-text">
+                <span>00:00</span>
+                <div class="sliderContainer">
+                    <input type="range" id="myRange" class="slider" min="1" max="100" value="1">
+                </div>
+                <span>00:00</span>
+            </div>
+            <div class="name-morceaux">
+                <h1>Lorem ipsum dolor sit</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="each-l-videos d-sm-flex align-items-center">
+        <div class="vid-l-img">
+            <img src="img/videos/2.jpg" alt="">
+            <a href="https://www.youtube.com/watch?v=qtQgbdmIO30" class="play-video popup-video"><i class="fa fa-play"></i></a>
+        </div>
+        <div class="vid-l-contents">
+            <div class="d-flex justify-content-center pb-15 vid-l-text">
+                <i id="playButton" onclick="checkPlay()" class="fa fa-play"></i>
+            </div>
+            <div class="d-flex vid-l-text">
+                <span>00:00</span>
+                <div class="sliderContainer">
+                    <input type="range" id="myRange" class="slider" min="1" max="100" value="1">
+                </div>
+                <span>00:00</span>
+            </div>
+            <div class="name-morceaux">
+                <h1>Lorem ipsum dolor sit</h1>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+ 
+
+
+ <!-- footer start -->
+ <footer class="footer-1" data-overlay="9" style="background-image: url('img/bg/footer.jpg');">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 z-5 text-center">
+                <div class="footer-start pt-90 pb-90">
+                    <img src="img/logo/logo2.png" alt="">
+                    <ul class="footer-contacts mt-20 opacity-7">
+                        <li>Phone: +1234567890</li>
+                        <li>Email: djmarco@example.com</li>
+                        <li>
+                            <ul class="social-icons white">
+                                <li> <a href=""><i class="fa fa-facebook-f"></i></a>
+                                </li>
+                                <li> <a href=""><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li> <a href=""><i class="fa fa-linkedin"></i></a>
+                                </li>
+                                <li> <a href=""><i class="fa fa-google-plus"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-end pt-30 pb-30">
+                    <a href="" class="scrol-tp opacity-0"><i class="fa fa-chevron-up"></i></a>
+                    <p>© DJ Marcos 2019. All rights reserved | <a href="">Privacy Policy</a> | <a href="">Terms & Condition</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer end -->
+
+
+<script src="/js/style.js"></script>
+</body>
+
+</html>
